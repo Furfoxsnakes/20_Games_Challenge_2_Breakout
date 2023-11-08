@@ -13,6 +13,7 @@ public partial class Game : Node
     [Export] private CanvasLayer _gameOverScreen;
     [Export] private Container _heartsContainer;
     [Export] private Label _pressSpaceLabel;
+    [Export] private Label _playerScore;
     
     public List<Brick> Bricks = new List<Brick>();
     public int Score = 0;
@@ -25,11 +26,12 @@ public partial class Game : Node
             {
                 if (child is Brick brick)
                 {
-                    brick.Init(this);
                     Bricks.Add(brick);
                 }
             }
         }
+        
+        UpdateScore();
     }
 
     public override void _PhysicsProcess(double delta)
@@ -62,9 +64,21 @@ public partial class Game : Node
         RestartGame();
     }
 
+    private void _on_brick_hit(Brick brick)
+    {
+        Bricks.Remove(brick);
+        Score += brick.Points;
+        brick.QueueFree();
+        
+        // update the score UI
+        UpdateScore();
+
+        if (Bricks.Count == 0)
+            State = GameState.GameOver;
+    }
+
     private void HandlePlayingState()
     {
-        GD.Print(Bricks.Count);
         _pressSpaceLabel.Visible = false;
         Ball.DoMovement();
     }
@@ -87,9 +101,9 @@ public partial class Game : Node
         _gameOverScreen.Visible = true;
     }
 
-    public void BrickHit(Brick brick)
+    public void UpdateScore()
     {
-        
+        _playerScore.Text = $"score: {Score}";
     }
 
     private GameState LoseHeart()

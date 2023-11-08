@@ -11,6 +11,8 @@ public partial class Ball : CharacterBody2D
 	private float _maxSpeed => MoveSpeed * 5;
 	private float _currentSpeed;
 	private const float MinAngle = 0.5f;
+	
+	[Signal] public delegate void BrickHitEventHandler(Brick brick);
 
 	public override void _Ready()
 	{
@@ -48,7 +50,8 @@ public partial class Ball : CharacterBody2D
 		
 		if (collider is Brick brick)
 		{
-			brick.Hit();
+			// BUG: All bricks are giving 100 points - probably because I duplicated the nodes on the Game scene
+			EmitSignal(SignalName.BrickHit, brick);
 			_currentSpeed = MathF.Min(_currentSpeed * 1.05f, _maxSpeed);
 		}
 		
