@@ -14,8 +14,10 @@ size = Vector2(2, 240)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fp82t"]
 size = Vector2(320, 20)
 
-[node name="Game" type="Node"]
+[node name="Game" type="Node" node_paths=PackedStringArray("Ball", "Paddle")]
 script = ExtResource("1_unhsp")
+Ball = NodePath("Ball")
+Paddle = NodePath("Paddle")
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -1
@@ -26,11 +28,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+color = Color(0.0941176, 0.0784314, 0.145098, 1)
 
 [node name="Bricks" type="Node" parent="."]
 
 [node name="Row0" type="Node2D" parent="Bricks"]
+position = Vector2(0, 8)
 
 [node name="Brick" parent="Bricks/Row0" instance=ExtResource("1_iuqvj")]
 modulate = Color(0.894118, 0.231373, 0.266667, 1)
@@ -97,7 +100,7 @@ modulate = Color(0.894118, 0.231373, 0.266667, 1)
 position = Vector2(310, 12)
 
 [node name="Row1" type="Node2D" parent="Bricks"]
-position = Vector2(0, 8)
+position = Vector2(0, 16)
 
 [node name="Brick" parent="Bricks/Row1" instance=ExtResource("1_iuqvj")]
 modulate = Color(0.894118, 0.231373, 0.266667, 1)
@@ -164,405 +167,405 @@ modulate = Color(0.894118, 0.231373, 0.266667, 1)
 position = Vector2(310, 12)
 
 [node name="Row2" type="Node2D" parent="Bricks"]
-position = Vector2(0, 16)
+position = Vector2(0, 24)
 
 [node name="Brick" parent="Bricks/Row2" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.968627, 0.462745, 0.133333, 1)
 position = Vector2(10, 12)
 
 [node name="Brick2" parent="Bricks/Row2" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.968627, 0.462745, 0.133333, 1)
 position = Vector2(30, 12)
 
 [node name="Brick3" parent="Bricks/Row2" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.968627, 0.462745, 0.133333, 1)
 position = Vector2(50, 12)
 
 [node name="Brick4" parent="Bricks/Row2" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.968627, 0.462745, 0.133333, 1)
 position = Vector2(70, 12)
 
 [node name="Brick5" parent="Bricks/Row2" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.968627, 0.462745, 0.133333, 1)
 position = Vector2(90, 12)
 
 [node name="Brick6" parent="Bricks/Row2" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.968627, 0.462745, 0.133333, 1)
 position = Vector2(110, 12)
 
 [node name="Brick7" parent="Bricks/Row2" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.968627, 0.462745, 0.133333, 1)
 position = Vector2(130, 12)
 
 [node name="Brick8" parent="Bricks/Row2" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.968627, 0.462745, 0.133333, 1)
 position = Vector2(150, 12)
 
 [node name="Brick9" parent="Bricks/Row2" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.968627, 0.462745, 0.133333, 1)
 position = Vector2(170, 12)
 
 [node name="Brick10" parent="Bricks/Row2" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.968627, 0.462745, 0.133333, 1)
 position = Vector2(190, 12)
 
 [node name="Brick11" parent="Bricks/Row2" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.968627, 0.462745, 0.133333, 1)
 position = Vector2(210, 12)
 
 [node name="Brick12" parent="Bricks/Row2" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.968627, 0.462745, 0.133333, 1)
 position = Vector2(230, 12)
 
 [node name="Brick13" parent="Bricks/Row2" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.968627, 0.462745, 0.133333, 1)
 position = Vector2(250, 12)
 
 [node name="Brick14" parent="Bricks/Row2" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.968627, 0.462745, 0.133333, 1)
 position = Vector2(270, 12)
 
 [node name="Brick15" parent="Bricks/Row2" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.968627, 0.462745, 0.133333, 1)
 position = Vector2(290, 12)
 
 [node name="Brick16" parent="Bricks/Row2" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.968627, 0.462745, 0.133333, 1)
 position = Vector2(310, 12)
 
 [node name="Row3" type="Node2D" parent="Bricks"]
-position = Vector2(0, 24)
+position = Vector2(0, 32)
 
 [node name="Brick" parent="Bricks/Row3" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.968627, 0.462745, 0.133333, 1)
 position = Vector2(10, 12)
 
 [node name="Brick2" parent="Bricks/Row3" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.968627, 0.462745, 0.133333, 1)
 position = Vector2(30, 12)
 
 [node name="Brick3" parent="Bricks/Row3" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.968627, 0.462745, 0.133333, 1)
 position = Vector2(50, 12)
 
 [node name="Brick4" parent="Bricks/Row3" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.968627, 0.462745, 0.133333, 1)
 position = Vector2(70, 12)
 
 [node name="Brick5" parent="Bricks/Row3" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.968627, 0.462745, 0.133333, 1)
 position = Vector2(90, 12)
 
 [node name="Brick6" parent="Bricks/Row3" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.968627, 0.462745, 0.133333, 1)
 position = Vector2(110, 12)
 
 [node name="Brick7" parent="Bricks/Row3" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.968627, 0.462745, 0.133333, 1)
 position = Vector2(130, 12)
 
 [node name="Brick8" parent="Bricks/Row3" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.968627, 0.462745, 0.133333, 1)
 position = Vector2(150, 12)
 
 [node name="Brick9" parent="Bricks/Row3" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.968627, 0.462745, 0.133333, 1)
 position = Vector2(170, 12)
 
 [node name="Brick10" parent="Bricks/Row3" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.968627, 0.462745, 0.133333, 1)
 position = Vector2(190, 12)
 
 [node name="Brick11" parent="Bricks/Row3" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.968627, 0.462745, 0.133333, 1)
 position = Vector2(210, 12)
 
 [node name="Brick12" parent="Bricks/Row3" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.968627, 0.462745, 0.133333, 1)
 position = Vector2(230, 12)
 
 [node name="Brick13" parent="Bricks/Row3" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.968627, 0.462745, 0.133333, 1)
 position = Vector2(250, 12)
 
 [node name="Brick14" parent="Bricks/Row3" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.968627, 0.462745, 0.133333, 1)
 position = Vector2(270, 12)
 
 [node name="Brick15" parent="Bricks/Row3" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.968627, 0.462745, 0.133333, 1)
 position = Vector2(290, 12)
 
 [node name="Brick16" parent="Bricks/Row3" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.968627, 0.462745, 0.133333, 1)
 position = Vector2(310, 12)
 
 [node name="Row4" type="Node2D" parent="Bricks"]
-position = Vector2(0, 32)
+position = Vector2(0, 40)
 
 [node name="Brick" parent="Bricks/Row4" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.996078, 0.905882, 0.380392, 1)
 position = Vector2(10, 12)
 
 [node name="Brick2" parent="Bricks/Row4" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.996078, 0.905882, 0.380392, 1)
 position = Vector2(30, 12)
 
 [node name="Brick3" parent="Bricks/Row4" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.996078, 0.905882, 0.380392, 1)
 position = Vector2(50, 12)
 
 [node name="Brick4" parent="Bricks/Row4" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.996078, 0.905882, 0.380392, 1)
 position = Vector2(70, 12)
 
 [node name="Brick5" parent="Bricks/Row4" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.996078, 0.905882, 0.380392, 1)
 position = Vector2(90, 12)
 
 [node name="Brick6" parent="Bricks/Row4" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.996078, 0.905882, 0.380392, 1)
 position = Vector2(110, 12)
 
 [node name="Brick7" parent="Bricks/Row4" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.996078, 0.905882, 0.380392, 1)
 position = Vector2(130, 12)
 
 [node name="Brick8" parent="Bricks/Row4" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.996078, 0.905882, 0.380392, 1)
 position = Vector2(150, 12)
 
 [node name="Brick9" parent="Bricks/Row4" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.996078, 0.905882, 0.380392, 1)
 position = Vector2(170, 12)
 
 [node name="Brick10" parent="Bricks/Row4" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.996078, 0.905882, 0.380392, 1)
 position = Vector2(190, 12)
 
 [node name="Brick11" parent="Bricks/Row4" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.996078, 0.905882, 0.380392, 1)
 position = Vector2(210, 12)
 
 [node name="Brick12" parent="Bricks/Row4" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.996078, 0.905882, 0.380392, 1)
 position = Vector2(230, 12)
 
 [node name="Brick13" parent="Bricks/Row4" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.996078, 0.905882, 0.380392, 1)
 position = Vector2(250, 12)
 
 [node name="Brick14" parent="Bricks/Row4" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.996078, 0.905882, 0.380392, 1)
 position = Vector2(270, 12)
 
 [node name="Brick15" parent="Bricks/Row4" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.996078, 0.905882, 0.380392, 1)
 position = Vector2(290, 12)
 
 [node name="Brick16" parent="Bricks/Row4" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.996078, 0.905882, 0.380392, 1)
 position = Vector2(310, 12)
 
 [node name="Row5" type="Node2D" parent="Bricks"]
-position = Vector2(0, 40)
+position = Vector2(0, 48)
 
 [node name="Brick" parent="Bricks/Row5" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.996078, 0.905882, 0.380392, 1)
 position = Vector2(10, 12)
 
 [node name="Brick2" parent="Bricks/Row5" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.996078, 0.905882, 0.380392, 1)
 position = Vector2(30, 12)
 
 [node name="Brick3" parent="Bricks/Row5" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.996078, 0.905882, 0.380392, 1)
 position = Vector2(50, 12)
 
 [node name="Brick4" parent="Bricks/Row5" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.996078, 0.905882, 0.380392, 1)
 position = Vector2(70, 12)
 
 [node name="Brick5" parent="Bricks/Row5" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.996078, 0.905882, 0.380392, 1)
 position = Vector2(90, 12)
 
 [node name="Brick6" parent="Bricks/Row5" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.996078, 0.905882, 0.380392, 1)
 position = Vector2(110, 12)
 
 [node name="Brick7" parent="Bricks/Row5" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.996078, 0.905882, 0.380392, 1)
 position = Vector2(130, 12)
 
 [node name="Brick8" parent="Bricks/Row5" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.996078, 0.905882, 0.380392, 1)
 position = Vector2(150, 12)
 
 [node name="Brick9" parent="Bricks/Row5" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.996078, 0.905882, 0.380392, 1)
 position = Vector2(170, 12)
 
 [node name="Brick10" parent="Bricks/Row5" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.996078, 0.905882, 0.380392, 1)
 position = Vector2(190, 12)
 
 [node name="Brick11" parent="Bricks/Row5" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.996078, 0.905882, 0.380392, 1)
 position = Vector2(210, 12)
 
 [node name="Brick12" parent="Bricks/Row5" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.996078, 0.905882, 0.380392, 1)
 position = Vector2(230, 12)
 
 [node name="Brick13" parent="Bricks/Row5" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.996078, 0.905882, 0.380392, 1)
 position = Vector2(250, 12)
 
 [node name="Brick14" parent="Bricks/Row5" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.996078, 0.905882, 0.380392, 1)
 position = Vector2(270, 12)
 
 [node name="Brick15" parent="Bricks/Row5" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.996078, 0.905882, 0.380392, 1)
 position = Vector2(290, 12)
 
 [node name="Brick16" parent="Bricks/Row5" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.996078, 0.905882, 0.380392, 1)
 position = Vector2(310, 12)
 
 [node name="Row6" type="Node2D" parent="Bricks"]
-position = Vector2(0, 48)
+position = Vector2(0, 56)
 
 [node name="Brick" parent="Bricks/Row6" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.388235, 0.780392, 0.301961, 1)
 position = Vector2(10, 12)
 
 [node name="Brick2" parent="Bricks/Row6" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.388235, 0.780392, 0.301961, 1)
 position = Vector2(30, 12)
 
 [node name="Brick3" parent="Bricks/Row6" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.388235, 0.780392, 0.301961, 1)
 position = Vector2(50, 12)
 
 [node name="Brick4" parent="Bricks/Row6" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.388235, 0.780392, 0.301961, 1)
 position = Vector2(70, 12)
 
 [node name="Brick5" parent="Bricks/Row6" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.388235, 0.780392, 0.301961, 1)
 position = Vector2(90, 12)
 
 [node name="Brick6" parent="Bricks/Row6" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.388235, 0.780392, 0.301961, 1)
 position = Vector2(110, 12)
 
 [node name="Brick7" parent="Bricks/Row6" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.388235, 0.780392, 0.301961, 1)
 position = Vector2(130, 12)
 
 [node name="Brick8" parent="Bricks/Row6" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.388235, 0.780392, 0.301961, 1)
 position = Vector2(150, 12)
 
 [node name="Brick9" parent="Bricks/Row6" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.388235, 0.780392, 0.301961, 1)
 position = Vector2(170, 12)
 
 [node name="Brick10" parent="Bricks/Row6" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.388235, 0.780392, 0.301961, 1)
 position = Vector2(190, 12)
 
 [node name="Brick11" parent="Bricks/Row6" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.388235, 0.780392, 0.301961, 1)
 position = Vector2(210, 12)
 
 [node name="Brick12" parent="Bricks/Row6" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.388235, 0.780392, 0.301961, 1)
 position = Vector2(230, 12)
 
 [node name="Brick13" parent="Bricks/Row6" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.388235, 0.780392, 0.301961, 1)
 position = Vector2(250, 12)
 
 [node name="Brick14" parent="Bricks/Row6" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.388235, 0.780392, 0.301961, 1)
 position = Vector2(270, 12)
 
 [node name="Brick15" parent="Bricks/Row6" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.388235, 0.780392, 0.301961, 1)
 position = Vector2(290, 12)
 
 [node name="Brick16" parent="Bricks/Row6" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.388235, 0.780392, 0.301961, 1)
 position = Vector2(310, 12)
 
 [node name="Row7" type="Node2D" parent="Bricks"]
-position = Vector2(0, 56)
+position = Vector2(0, 64)
 
 [node name="Brick" parent="Bricks/Row7" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.388235, 0.780392, 0.301961, 1)
 position = Vector2(10, 12)
 
 [node name="Brick2" parent="Bricks/Row7" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.388235, 0.780392, 0.301961, 1)
 position = Vector2(30, 12)
 
 [node name="Brick3" parent="Bricks/Row7" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.388235, 0.780392, 0.301961, 1)
 position = Vector2(50, 12)
 
 [node name="Brick4" parent="Bricks/Row7" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.388235, 0.780392, 0.301961, 1)
 position = Vector2(70, 12)
 
 [node name="Brick5" parent="Bricks/Row7" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.388235, 0.780392, 0.301961, 1)
 position = Vector2(90, 12)
 
 [node name="Brick6" parent="Bricks/Row7" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.388235, 0.780392, 0.301961, 1)
 position = Vector2(110, 12)
 
 [node name="Brick7" parent="Bricks/Row7" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.388235, 0.780392, 0.301961, 1)
 position = Vector2(130, 12)
 
 [node name="Brick8" parent="Bricks/Row7" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.388235, 0.780392, 0.301961, 1)
 position = Vector2(150, 12)
 
 [node name="Brick9" parent="Bricks/Row7" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.388235, 0.780392, 0.301961, 1)
 position = Vector2(170, 12)
 
 [node name="Brick10" parent="Bricks/Row7" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.388235, 0.780392, 0.301961, 1)
 position = Vector2(190, 12)
 
 [node name="Brick11" parent="Bricks/Row7" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.388235, 0.780392, 0.301961, 1)
 position = Vector2(210, 12)
 
 [node name="Brick12" parent="Bricks/Row7" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.388235, 0.780392, 0.301961, 1)
 position = Vector2(230, 12)
 
 [node name="Brick13" parent="Bricks/Row7" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.388235, 0.780392, 0.301961, 1)
 position = Vector2(250, 12)
 
 [node name="Brick14" parent="Bricks/Row7" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.388235, 0.780392, 0.301961, 1)
 position = Vector2(270, 12)
 
 [node name="Brick15" parent="Bricks/Row7" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.388235, 0.780392, 0.301961, 1)
 position = Vector2(290, 12)
 
 [node name="Brick16" parent="Bricks/Row7" instance=ExtResource("1_iuqvj")]
-modulate = Color(0.894118, 0.231373, 0.266667, 1)
+modulate = Color(0.388235, 0.780392, 0.301961, 1)
 position = Vector2(310, 12)
 
 [node name="Paddle" parent="." instance=ExtResource("3_clho4")]
@@ -570,7 +573,6 @@ position = Vector2(160, 228)
 
 [node name="Ball" parent="." instance=ExtResource("4_qg42l")]
 position = Vector2(160, 94)
-MoveSpeed = 50.0
 
 [node name="Ceiling" type="StaticBody2D" parent="."]
 position = Vector2(160, -1)
@@ -595,3 +597,5 @@ position = Vector2(160, 250)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pit"]
 shape = SubResource("RectangleShape2D_fp82t")
+
+[connection signal="body_entered" from="Pit" to="." method="_on_pit_body_entered"]

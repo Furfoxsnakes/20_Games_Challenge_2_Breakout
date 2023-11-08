@@ -19,6 +19,7 @@ public partial class Paddle : StaticBody2D
 
 	private void HandleMovement()
 	{
+		// TODO: FIX: Paddle freaks out when the mouse position is close to the center of the object
 		var direction = Position.DirectionTo(GetGlobalMousePosition());
 		direction.Y = 0;
 		MoveAndCollide(direction * MoveSpeed);
