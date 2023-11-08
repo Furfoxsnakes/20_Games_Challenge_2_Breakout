@@ -13,7 +13,6 @@ floor_constant_speed = true
 floor_block_on_wall = false
 floor_max_angle = 0.0
 script = ExtResource("1_hklgs")
-MoveSpeed = 100
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_5bv71")
