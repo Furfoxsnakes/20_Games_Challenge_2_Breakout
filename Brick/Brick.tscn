@@ -1,22 +1,21 @@
 [gd_scene load_steps=5 format=3 uid="uid://bwqpi4g7tihug"]
 
 [ext_resource type="Script" path="res://Brick/Brick.cs" id="1_e6y06"]
-[ext_resource type="Texture2D" uid="uid://d3f5oavcbj2e" path="res://Assets/Textures/Block.png" id="1_l8j15"]
+[ext_resource type="Texture2D" uid="uid://bhsq3qiicsuqk" path="res://Assets/Textures/Brick.png" id="2_j2qer"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mme2p"]
 friction = 0.0
 bounce = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5dbxv"]
-size = Vector2(48, 8)
+size = Vector2(20, 8)
 
 [node name="Brick" type="StaticBody2D" groups=["Bricks"]]
 physics_material_override = SubResource("PhysicsMaterial_mme2p")
 script = ExtResource("1_e6y06")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-9.53674e-07, 0)
-texture = ExtResource("1_l8j15")
+texture = ExtResource("2_j2qer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 show_behind_parent = true
