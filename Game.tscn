@@ -1,12 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://2cq7jboxgsmw"]
+[gd_scene load_steps=12 format=3 uid="uid://2cq7jboxgsmw"]
 
 [ext_resource type="PackedScene" uid="uid://bwqpi4g7tihug" path="res://Brick/Brick.tscn" id="1_iuqvj"]
 [ext_resource type="Script" path="res://Game.cs" id="1_unhsp"]
+[ext_resource type="Theme" uid="uid://ddw0mccpg7fsx" path="res://MainTheme.tres" id="2_d5qav"]
+[ext_resource type="Texture2D" uid="uid://cem32qbt41230" path="res://Assets/Textures/Arena.png" id="2_gt4tr"]
+[ext_resource type="Texture2D" uid="uid://pwp1el18lmnn" path="res://Assets/Textures/Heart.png" id="3_8i6ju"]
 [ext_resource type="PackedScene" uid="uid://bjmaqbixe27gs" path="res://Paddle/Paddle.tscn" id="3_clho4"]
 [ext_resource type="PackedScene" uid="uid://nr6wcr0pw1co" path="res://Ball/Ball.tscn" id="4_qg42l"]
+[ext_resource type="AudioStream" uid="uid://dxjipi3muacnh" path="res://Assets/Audio/Space Cadet.ogg" id="8_22j10"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cbu74"]
-size = Vector2(320, 2)
+size = Vector2(320, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4y5tb"]
 size = Vector2(2, 240)
@@ -14,23 +18,98 @@ size = Vector2(2, 240)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fp82t"]
 size = Vector2(320, 20)
 
-[node name="Game" type="Node" node_paths=PackedStringArray("Ball", "Paddle")]
+[node name="Game" type="Node" node_paths=PackedStringArray("Ball", "Paddle", "_gameOverScreen", "_heartsContainer", "_pressSpaceLabel")]
 script = ExtResource("1_unhsp")
 Ball = NodePath("Ball")
 Paddle = NodePath("Paddle")
+_gameOverScreen = NodePath("GameOverScreen")
+_heartsContainer = NodePath("GameUI/HBoxContainer/HeartsContainer")
+_pressSpaceLabel = NodePath("GameUI/PressSpaceLabel")
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -1
 
-[node name="TextureRect" type="ColorRect" parent="Background"]
+[node name="TextureRect" type="TextureRect" parent="Background"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.0941176, 0.0784314, 0.145098, 1)
+texture = ExtResource("2_gt4tr")
 
-[node name="Bricks" type="Node" parent="."]
+[node name="GameUI" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GameUI"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 20.0
+grow_horizontal = 2
+theme = ExtResource("2_d5qav")
+
+[node name="HeartsContainer" type="HBoxContainer" parent="GameUI/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="GameUI/HBoxContainer/HeartsContainer"]
+layout_mode = 2
+texture = ExtResource("3_8i6ju")
+stretch_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="GameUI/HBoxContainer/HeartsContainer"]
+layout_mode = 2
+texture = ExtResource("3_8i6ju")
+stretch_mode = 3
+
+[node name="TextureRect3" type="TextureRect" parent="GameUI/HBoxContainer/HeartsContainer"]
+layout_mode = 2
+texture = ExtResource("3_8i6ju")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="GameUI/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "score: 999999999"
+
+[node name="PressSpaceLabel" type="Label" parent="GameUI"]
+offset_left = 70.0
+offset_top = 132.0
+offset_right = 265.0
+offset_bottom = 158.0
+theme = ExtResource("2_d5qav")
+text = "PRESS SPACE TO LAUNCH"
+
+[node name="GameOverScreen" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="GameOverScreen"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.811765)
+
+[node name="CenterContainer" type="CenterContainer" parent="GameOverScreen"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_d5qav")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOverScreen/CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GameOverScreen/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "GAME OVER"
+
+[node name="GameRestart" type="Button" parent="GameOverScreen/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "RESTART"
+
+[node name="Bricks" type="Node2D" parent="."]
+position = Vector2(0, 15)
 
 [node name="Row0" type="Node2D" parent="Bricks"]
 position = Vector2(0, 8)
@@ -572,10 +651,10 @@ position = Vector2(310, 12)
 position = Vector2(160, 228)
 
 [node name="Ball" parent="." instance=ExtResource("4_qg42l")]
-position = Vector2(160, 94)
+position = Vector2(160, 108)
 
 [node name="Ceiling" type="StaticBody2D" parent="."]
-position = Vector2(160, -1)
+position = Vector2(160, 24)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ceiling"]
 shape = SubResource("RectangleShape2D_cbu74")
@@ -598,4 +677,9 @@ position = Vector2(160, 250)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pit"]
 shape = SubResource("RectangleShape2D_fp82t")
 
+[node name="GameMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_22j10")
+autoplay = true
+
+[connection signal="pressed" from="GameOverScreen/CenterContainer/VBoxContainer/GameRestart" to="." method="_on_game_restart_pressed"]
 [connection signal="body_entered" from="Pit" to="." method="_on_pit_body_entered"]

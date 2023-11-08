@@ -1,12 +1,14 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial class Ball : CharacterBody2D
 {
+	[Export] private AudioStreamPlayer _hitAudio;
 	[Export] private float MoveSpeed = 50;
 	public Vector2 Movement;
 
-	private float _maxSpeed => MoveSpeed * 3;
+	private float _maxSpeed => MoveSpeed * 5;
 	private float _currentSpeed;
 	private const float MinAngle = 0.5f;
 
@@ -31,11 +33,16 @@ public partial class Ball : CharacterBody2D
 		HandleCollision(MoveAndSlide());
 	}
 
+	public void ResetCurrentSpeed()
+	{
+		_currentSpeed = MoveSpeed;
+	}
+
 	private void HandleCollision(bool isColliding)
 	{
 		if (!isColliding) return;
 
-		// GD.Print(GetSlideCollision(0).GetTravel());
+		_hitAudio.Play();
 
 		var collider = GetSlideCollision(0).GetCollider();
 		
@@ -61,9 +68,7 @@ public partial class Ball : CharacterBody2D
 			Velocity = new Vector2(travel.X, -travel.Y);
 		
 		if (IsOnWall())
-		{
 			Velocity = new Vector2(-travel.X, travel.Y);
-		}
 		
 		//Stretch Goal: Add a minimum angle to the ball so that it doesn't do steep horizontal bounces off the walls
 		

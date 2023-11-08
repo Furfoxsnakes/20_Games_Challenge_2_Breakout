@@ -1,0 +1,33 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://dxpvrpkcn5a3w"
+path="res://.godot/imported/Kenney Space.ttf-7f17a2875651c6a2a5214b2b1827c2e2.fontdata"
+
+[deps]
+
+source_file="res://Assets/Fonts/Kenney Space.ttf"
+dest_files=["res://.godot/imported/Kenney Space.ttf-7f17a2875651c6a2a5214b2b1827c2e2.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=1
+subpixel_positioning=1
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}

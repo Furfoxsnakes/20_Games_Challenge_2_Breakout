@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://ddw0mccpg7fsx"]
+
+[ext_resource type="FontFile" uid="uid://dxpvrpkcn5a3w" path="res://Assets/Fonts/Kenney Space.ttf" id="1_mq68o"]
+
+[resource]
+default_font = ExtResource("1_mq68o")
+default_font_size = 8
+Button/colors/font_color = Color(0.352941, 0.411765, 0.533333, 1)
+Button/colors/font_hover_color = Color(0.752941, 0.796078, 0.862745, 1)

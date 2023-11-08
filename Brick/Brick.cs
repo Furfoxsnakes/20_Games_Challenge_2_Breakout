@@ -3,19 +3,17 @@ using System;
 
 public partial class Brick : StaticBody2D
 {
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-	{
-	}
+	[Export] public int Points;
+	private Game _game;
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
+	public void Init(Game game)
 	{
-		
+		_game = game;
 	}
 
 	public void Hit()
 	{
+		_game.Bricks.Remove(this);
 		QueueFree();
 	}
 }

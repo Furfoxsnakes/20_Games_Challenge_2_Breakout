@@ -1,21 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://nr6wcr0pw1co"]
+[gd_scene load_steps=5 format=3 uid="uid://nr6wcr0pw1co"]
 
 [ext_resource type="Texture2D" uid="uid://cfpk5370tsrqg" path="res://Assets/Textures/Ball.png" id="1_5bv71"]
 [ext_resource type="Script" path="res://Ball/Ball.cs" id="1_hklgs"]
+[ext_resource type="AudioStream" uid="uid://bmrdragwghnw8" path="res://Assets/Audio/hurt2.ogg" id="3_7768g"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_anc0p"]
 radius = 3.0
 
-[node name="Ball" type="CharacterBody2D"]
+[node name="Ball" type="CharacterBody2D" node_paths=PackedStringArray("_hitAudio")]
 slide_on_ceiling = false
 wall_min_slide_angle = 0.0
 floor_constant_speed = true
 floor_block_on_wall = false
 floor_max_angle = 0.0
 script = ExtResource("1_hklgs")
+_hitAudio = NodePath("HitAudio")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_5bv71")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_anc0p")
+
+[node name="HitAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_7768g")
+volume_db = -5.0
